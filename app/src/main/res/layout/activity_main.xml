@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="20dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="APLIKASI STRUK BELANJA" android:textSize="22sp"
+            android:textStyle="bold" android:gravity="center" android:padding="12dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Pilih barang"/>
+        <Spinner android:id="@+id/pilihanBarang" android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Jumlah barang" android:layout_marginTop="12dp"/>
+        <EditText android:id="@+id/inputJumlah" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Masukkan jumlah"
+            android:inputType="number"/>
+        <Button android:id="@+id/tambahButton" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Tambah ke Keranjang"/>
+        <Button android:id="@+id/hitungButton" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Tampilkan Struk"/>
+        <Button android:id="@+id/resetButton" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Kosongkan Keranjang"/>
+        <TextView android:id="@+id/hasilStruk" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Struk akan tampil di sini."
+            android:textSize="16sp" android:padding="12dp" android:layout_marginTop="12dp"/>
+    </LinearLayout>
+</ScrollView>
