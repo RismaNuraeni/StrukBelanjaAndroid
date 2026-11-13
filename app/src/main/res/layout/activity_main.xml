@@ -1,29 +1,329 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="20dp">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="APLIKASI STRUK BELANJA" android:textSize="22sp"
-            android:textStyle="bold" android:gravity="center" android:padding="12dp"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Pilih barang"/>
-        <Spinner android:id="@+id/pilihanBarang" android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Jumlah barang" android:layout_marginTop="12dp"/>
-        <EditText android:id="@+id/inputJumlah" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="Masukkan jumlah"
-            android:inputType="number"/>
-        <Button android:id="@+id/tambahButton" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:text="Tambah ke Keranjang"/>
-        <Button android:id="@+id/hitungButton" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:text="Tampilkan Struk"/>
-        <Button android:id="@+id/resetButton" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:text="Kosongkan Keranjang"/>
-        <TextView android:id="@+id/hasilStruk" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:text="Struk akan tampil di sini."
-            android:textSize="16sp" android:padding="12dp" android:layout_marginTop="12dp"/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F8F4"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- JUDUL TOKO -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TOKO ALAT TULIS"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="#35483B"
+            android:gravity="center"
+            android:padding="16dp"/>
+
+        <!-- SUB JUDUL -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DAFTAR BARANG"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#526B59"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="18dp"/>
+
+        <!-- SPINNER LAMA, DISEMBUNYIKAN -->
+        <Spinner
+            android:id="@+id/pilihanBarang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        <!-- BARIS BARANG PERTAMA -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- BUKU -->
+            <TextView
+                android:id="@+id/bukuButton"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_product"
+                android:gravity="center"
+                android:text="📖\nBuku"
+                android:textColor="#35483B"
+                android:textSize="14sp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- PULPEN -->
+            <TextView
+                android:id="@+id/pulpenButton"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_product"
+                android:gravity="center"
+                android:text="🖊️\nPulpen"
+                android:textColor="#35483B"
+                android:textSize="14sp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- PENGHAPUS -->
+            <TextView
+                android:id="@+id/penghapusButton"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_product"
+                android:gravity="center"
+                android:text="🧽\nPenghapus"
+                android:textColor="#35483B"
+                android:textSize="13sp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+        </LinearLayout>
+
+        <!-- BARIS BARANG KEDUA -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- PENGGARIS -->
+            <TextView
+                android:id="@+id/penggarisButton"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_product"
+                android:gravity="center"
+                android:text="📏\nPenggaris"
+                android:textColor="#35483B"
+                android:textSize="13sp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- PENSIL -->
+            <TextView
+                android:id="@+id/pensilButton"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_product"
+                android:gravity="center"
+                android:text="✏️\nPensil"
+                android:textColor="#35483B"
+                android:textSize="14sp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+        </LinearLayout>
+
+        <!-- INPUT JUMLAH DAN KERANJANG -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah"
+                android:textColor="#35483B"
+                android:textSize="14sp"/>
+
+            <EditText
+                android:id="@+id/inputJumlah"
+                android:layout_width="65dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="10dp"
+                android:background="#E3EBE3"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:textColor="#35483B"
+                android:textSize="14sp"
+                android:padding="5dp"/>
+
+            <Button
+                android:id="@+id/tambahButton"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:text="+ Keranjang"
+                android:textSize="12sp"
+                android:textColor="#35483B"
+                android:textAllCaps="false"
+                android:backgroundTint="#B9CEBE"/>
+
+        </LinearLayout>
+
+        <!-- TABEL KERANJANG -->
+        <TableLayout
+            android:id="@+id/tableKeranjang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:background="#FFFFFF">
+
+            <TableRow
+                android:background="#DDE9DF">
+
+                <TextView
+                    android:padding="8dp"
+                    android:text="Nama Barang"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="#35483B"/>
+
+                <TextView
+                    android:padding="8dp"
+                    android:text="Harga"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="#35483B"/>
+
+                <TextView
+                    android:padding="8dp"
+                    android:text="Jumlah"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="#35483B"/>
+
+                <TextView
+                    android:padding="8dp"
+                    android:text="Subtotal"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="#35483B"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <!-- RINGKASAN PEMBAYARAN -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:background="#EEF3EC"
+            android:layout_marginTop="18dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Belanja :"
+                android:textColor="#35483B"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/hasilStruk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rp 0"
+                android:textColor="#35483B"
+                android:textStyle="bold"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PPN 11%"
+                android:textColor="#35483B"
+                android:textSize="14sp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/textPPN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rp 0"
+                android:textColor="#35483B"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Pembayaran :"
+                android:textColor="#35483B"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/textTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rp 0"
+                android:textColor="#526B59"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <!-- TOMBOL AKSI -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/hitungButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:text="Cetak Struk"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:backgroundTint="#789580"
+                android:textColor="#FFFFFF"/>
+
+            <Button
+                android:id="@+id/hapusButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:text="Hapus"
+                android:textSize="11sp"
+                android:textAllCaps="false"
+                android:backgroundTint="#EDE4D1"
+                android:textColor="#35483B"/>
+
+            <Button
+                android:id="@+id/resetButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:text="Reset"
+                android:textSize="11sp"
+                android:textAllCaps="false"
+                android:backgroundTint="#B9CEBE"
+                android:textColor="#35483B"/>
+
+        </LinearLayout>
+
     </LinearLayout>
+
 </ScrollView>
